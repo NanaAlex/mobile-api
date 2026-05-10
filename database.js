@@ -1,6 +1,8 @@
 const sqlite3 = require('sqlite3').verbose();
 
-const db = new sqlite3.Database('./banco.db', (erro) => {
+const DB_PATH = process.env.DB_PATH || './banco.db';
+
+const db = new sqlite3.Database(DB_PATH, (erro) => {
   if (erro) {
     console.error('Erro ao conectar no banco:', erro.message);
   } else {
