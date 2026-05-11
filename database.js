@@ -20,16 +20,6 @@ db.serialize(() => {
       review TEXT NOT NULL
     )
   `);
-
-    db.get('SELECT COUNT(*) AS total FROM jogos', [], (erro, row) => {
-    if (!erro && row.total === 0) {
-      db.run(`
-        INSERT INTO jogos (nome, tipo, nota, review)
-        VALUES
-        ('The Last of Us', 'Ação/Aventura', 10, 'Uma história incrível e emocionante.')
-      `);
-    }
-  });
 });
 
 module.exports = db;
